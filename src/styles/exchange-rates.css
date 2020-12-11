@@ -1,0 +1,301 @@
+.container {
+  margin: 0 auto;
+  background-color: rgba(48, 48, 48, 0.78);
+  width: 50%;
+  position: relative;
+  user-select: none;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-header {
+  background-color: rgb(3, 17, 30);
+  height: auto;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+.app-title {
+  font-weight: 700;
+  font-size: 1.6em;
+  text-align: center;
+  flex: 1 1 50%;
+}
+
+.ham {
+  fill: rgba(255, 255, 255, 1);
+  padding: 5px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+.ham:hover {
+  fill: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all ease-in 120ms;
+  cursor: pointer;
+}
+
+.exchange-date {
+  opacity: 0.8;
+  font-weight: 100;
+  font-size: 0.75em;
+  margin: 10px;
+  text-align: end;
+}
+
+.selected-currency {
+  list-style: none;
+  margin: 0 auto;
+  width: 70%;
+  padding: 7px;
+}
+.selected-currency .currency {
+  background-color: rgba(22, 212, 117, 0.589);
+  margin-bottom: 0.5em;
+  border-radius: 10px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.selected-currency .currency .currency-field {
+  background-color: rgba(15, 145, 80, 0.589);
+  border: 2px solid rgb(214, 214, 214);
+}
+
+.currencies {
+  list-style: none;
+  margin: 1.2em;
+  padding: 5px;
+  overflow-y: auto;
+  height: 60%;
+  scroll-behavior: smooth;
+}
+.currencies .currency {
+  background-color: rgb(39, 39, 39);
+  margin-bottom: 0.5em;
+  border-radius: 10px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.currencies .currency:hover {
+  cursor: pointer;
+  transition: all 150ms;
+  background-color: rgb(37, 42, 87);
+}
+
+.country-flag {
+  width: 56px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 5px 0px 5px 5px;
+  margin: 10px;
+}
+.currency-info {
+  padding: 5px;
+  padding-left: 2px;
+}
+.currency-symbol {
+  text-align: justify;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px 20px 10px 20px;
+  flex: 0 0 4em;
+}
+.currency-field {
+  border: none;
+  background-color: rgb(39, 39, 39);
+  width: 82%;
+
+  padding: 2px;
+  outline: none;
+  border: 2px solid rgb(92, 92, 92);
+  border-radius: 5px;
+  margin-bottom: 0.25em;
+}
+.currencies .currency-name {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.currency-field::placeholder {
+  color: white;
+}
+
+.currency-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+.base-currency {
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.close {
+  padding: 0px 10px 5px 0px;
+  cursor: pointer;
+}
+.close:hover {
+  transform: scaleY(1.03);
+  font-size: 1.05em;
+  transition: 0.18s;
+}
+
+.currency-list {
+  position: absolute;
+  top: 75px;
+  list-style: none;
+  background-color: rgb(240, 240, 240);
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+  left: -100%;
+}
+
+.search-bar-container {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: rgb(240, 240, 240);
+}
+.search-bar {
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+.search-currency {
+  background-color: rgb(240, 240, 240);
+  color: black;
+  padding: 5px;
+  border: none;
+  outline: none;
+  width: 85%;
+}
+.search-currency::placeholder {
+  padding: 5px;
+}
+.search-icon {
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+  float: right;
+  fill: gray;
+}
+
+.currency-list.show {
+  left: 0px;
+  transition: all ease-in 120ms;
+}
+.currency-list.close {
+  left: -100%;
+  transition: all ease-out 120ms;
+}
+
+.currency-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #ddd;
+  cursor: pointer;
+}
+.currency-list li:hover {
+  background-color: rgb(216, 216, 216);
+  transition: all 150ms;
+}
+.currency-list li .currency-name {
+  font-weight: 700;
+  color: rgb(63, 63, 63);
+  flex: 1 0 50%;
+}
+
+.currency-list li.checked {
+  pointer-events: none;
+  opacity: 0.5;
+}
+/* .currency-list li::after{
+  content:"✔";
+  width: 25px; 
+  height: 25px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background: #49a05c;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 2px;
+}  */
+
+/* Smaller Mobile Devices i.e for Galaxy Fold*/
+@media only screen and (max-width: 320px) {
+  .container {
+    width: 100%;
+  }
+  .selected-currency {
+    width: 100%;
+  }
+  .selected-currency .currency {
+    justify-content: space-between;
+  }
+  .currencies {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .currencies {
+    height: 45%;
+  }
+}
+
+/*  Mobile devices */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  .selected-currency {
+    width: 90%;
+  }
+  .selected-currency .currency {
+    justify-content: space-between;
+  }
+  .currencies {
+    height: 48%;
+  }
+}
+/*  Mobile devices */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/*  iPads, Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* Appiles to all Potrait Devices */
+@media screen and (orientation: portrait) {
+  .container {
+    width: 100%;
+    transition: ease-in-out 120ms;
+  }
+  .currency-info {
+    font-size: 25%;
+  }
+  .currencies .currency {
+    height: auto;
+  }
+  .currencies .currency-name {
+    width: auto;
+  }
+  .currencies .currency-name {
+    overflow: visible;
+    white-space: normal;
+  }
+}
